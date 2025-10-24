@@ -14,7 +14,7 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, '..', 'frontend', 'build')));
 
 app.get('/', (req, res) => {
-  res.send('🚀 Servidor funcionando correctamente en Railway');
+  res.send('Servidor funcionando correctamente en Railway');
 });
 
 const PORT = process.env.PORT || 8080;
