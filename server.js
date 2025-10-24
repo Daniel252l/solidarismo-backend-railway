@@ -5,7 +5,6 @@ const sql = require('mssql');
 const path = require('path');
 
 const app = express();
-const PORT = process.env.PORT || 8080;
 
 oracledb.outFormat = oracledb.OUT_FORMAT_OBJECT;
 oracledb.autoCommit = true;
@@ -14,12 +13,15 @@ app.use(cors());
 app.use(express.json());
 app.use(express.static(path.join(__dirname, '..', 'frontend', 'build')));
 
-// Ruta base de prueba
 app.get('/', (req, res) => {
   res.send('🚀 Servidor funcionando correctamente en Railway');
 });
 
-app.listen(PORT, () => console.log(`Servidor corriendo en puerto ${PORT}`));
+const PORT = process.env.PORT || 8080;
+app.listen(PORT, () => {
+  console.log(`✅ Servidor corriendo en el puerto ${PORT}`);
+});
+
 
 const dbConfigs = {
   capital: {
